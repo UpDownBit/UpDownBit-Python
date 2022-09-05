@@ -9,8 +9,8 @@ router = APIRouter()
 
 @router.get("/candles_ten_minutes/{market}/{date}")
 def get_candles_ten_minutes(market, date):
-    highs, lows = minitue_candle.refine_ten_minute_candle(market, date)
+    result = minitue_candle.refine_ten_minute_candle(market, date)
 
-    highlow.insert(market, date, highs, lows)
+    highlow.insert(market, date, result)
 
-    return None
+    return result

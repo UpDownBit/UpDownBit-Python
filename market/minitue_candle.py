@@ -26,18 +26,18 @@ def refine_ten_minute_candle(market, date):
             headers=headers
         )
 
-        result += res.json()
+        data_tmp = res.json()
+
+        for dt in data_tmp:
+            insert_data = {
+                "price": dt["trade_price"],
+                "time": dt["candle_date_time_kst"],
+            }
+
+            result.append(insert_data)
 
         print("{}(UST) Finished.....".format(target_time))
 
         time.sleep(0.1)
 
-    result = sorted(result, key=lambda x: x["trade_price"])
-    highs_tmp, lows_tmp = result[-5:], result[:5]
-    highs, lows = [], []
-
-    for i in range(5):
-        highs.append({"time": highs_tmp[0]["candle_date_time_kst"], "price": highs_tmp[0]["trade_price"]})
-        lows.append({"time": lows_tmp[0]["candle_date_time_kst"], "price": lows_tmp[0]["trade_price"]})
-
-    return highs, lows
+    return result
