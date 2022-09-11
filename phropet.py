@@ -21,8 +21,6 @@ def get_predict(data):
     forecast = forecast[-143:]
     forecast = forecast.sort_values(by=['yhat'], ascending=False)
 
-    forecast.to_csv("filename.csv", encoding="utf-8")
-
     result = {
         "high": {
             "time": forecast.iloc[0]["ds"],

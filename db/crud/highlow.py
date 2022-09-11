@@ -8,7 +8,9 @@ def read(market):
     docs = high_low_eos_ref.stream()
 
     data = []
-    min_date = (datetime.datetime.now() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
+
+    # 날짜 범위 지정 시 사용 예정
+    # min_date = (datetime.datetime.now() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
 
     for doc in docs:
         # if doc.id < min_date:

@@ -2,7 +2,6 @@ from typing import Any
 from fastapi import APIRouter
 from dotenv import dotenv_values
 
-from db import init as db_init
 from db.crud import highlow
 
 config = dotenv_values(".env")
@@ -24,6 +23,6 @@ def health_check_fastapi() -> Any:
 
 @router.get("/db")
 def health_check_db() -> Any:
-    highlow.read()
+    highlow.read("KRW-EOS")
 
     return {"msg": "FireStore OK"}
