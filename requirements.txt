@@ -1,0 +1,3 @@
+numpy
+fastapi
+firebase_admin
