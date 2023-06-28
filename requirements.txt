@@ -79,6 +79,7 @@ pytz==2022.1
 requests==2.27.1
 requests-file==1.5.1
 rsa==4.9
+scipy==1.9.1
 setuptools-git==1.2
 six==1.15.0
 sniffio==1.2.0
